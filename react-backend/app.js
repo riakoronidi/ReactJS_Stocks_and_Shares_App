@@ -226,6 +226,74 @@ MongoClient.connect("mongodb://localhost:27017", function (err, client) {
     });
   });
 
+
+  // LOSS COLLECTION
+
+  app.get("/loss", function(req, res){
+    const lossCollection = db.collection("loss");
+    lossCollection.find().toArray(function(err, loss){
+      if(err){
+        console.log(err);
+        res.status(500);
+        res.send();
+      }
+
+      res.json(loss);
+    });
+  })
+
+  app.post("/loss", function(req, res){
+
+    const lossCollection = db.collection("loss");
+    const lossToSave = req.body;
+
+    lossCollection.save(lossToSave, function(err, result){
+      if(err){
+        console.log(err);
+        res.status(500);
+        res.send();
+      }
+
+      console.log("Saved to DB!");
+
+      res.status(201);
+      res.json(lossToSave);
+    })
+  });
+
+  app.delete("/loss", function(req, res){
+    const lossCollection = db.collection("loss");
+
+    const filterObject = {};
+
+    lossCollection.deleteMany(filterObject, function(err, result){
+      if(err){
+        console.log(err);
+        res.status(500);
+        res.send();
+      }
+
+      res.status(204);
+      res.send();
+    });
+  })
+
+  app.put('/loss/:id', function(req, res){
+    const objectID = ObjectID(req.params.id);
+    const filterObject = {_id: objectID};
+    const updatedData = req.body;
+    const lossCollection = db.collection('loss');
+    lossCollection.update(filterObject, updatedData, function(err, result){
+      if(err){
+        res.status(500);
+        res.send();
+      }
+
+      res.status(204);
+      res.send();
+    });
+  });
+
 });
 
 module.exports = app;
