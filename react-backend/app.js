@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const ObjectID = require('mongodb').ObjectID;
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -35,7 +36,8 @@ MongoClient.connect("mongodb://localhost:27017", function (err, client) {
     return;
   }
 
-  //  -- STOCK MARKET API --
+
+  //  API MARKET STOCK COLLECTION
 
   const db = client.db("stock_market_db");
 
@@ -87,6 +89,74 @@ MongoClient.connect("mongodb://localhost:27017", function (err, client) {
       res.send();
     });
   })
+
+
+  // PORTFOLIO COLLECTION
+
+  app.get("/portfolio", function(req, res){
+    const portfolioCollection = db.collection("portfolio");
+    portfolioCollection.find().toArray(function(err, portfolio){
+      if(err){
+        console.log(err);
+        res.status(500);
+        res.send();
+      }
+
+      res.json(portfolio);
+    });
+  })
+
+  app.post("/portfolio", function(req, res){
+
+    const portfolioCollection = db.collection("portfolio");
+    const portfolioStockToSave = req.body;
+
+    portfolioCollection.save(portfolioStockToSave, function(err, result){
+      if(err){
+        console.log(err);
+        res.status(500);
+        res.send();
+      }
+
+      console.log("Saved to DB!");
+
+      res.status(201);
+      res.json(portfolioStockToSave);
+    })
+  });
+
+  app.delete("/portfolio", function(req, res){
+    const portfolioCollection = db.collection("portfolio");
+
+    const filterObject = {};
+
+    portfolioCollection.deleteMany(filterObject, function(err, result){
+      if(err){
+        console.log(err);
+        res.status(500);
+        res.send();
+      }
+
+      res.status(204);
+      res.send();
+    });
+  })
+
+  app.put('/portfolio/:id', function(req, res){
+    const objectID = ObjectID(req.params.id);
+    const filterObject = {_id: objectID};
+    const updatedData = req.body;
+    const portfolioCollection = db.collection('portfolio');
+    portfolioCollection.update(filterObject, updatedData, function(err, result){
+      if(err){
+        res.status(500);
+        res.send();
+      }
+
+      res.status(204);
+      res.send();
+    });
+  });
 
 });
 
