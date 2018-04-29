@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import MarketStock from "./Components/MarketStock"
 import './App.css';
 
 class App extends Component {

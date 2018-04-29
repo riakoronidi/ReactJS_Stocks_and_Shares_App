@@ -1,24 +1,27 @@
 import React from 'react';
 import _ from 'lodash';
 
-const MarketStockSelector = (props) => {
+const MarketStock = (props) => {
 
-  const options = props.stock.map((stockItem, index){
+  const options = props.stock.map((stockItem, index) => {
     return <option key={index} value={index}>{stockItem.symbol}</option>
   });
 
-  const sectors = props.stock.map((stockItem, index){
+  const sectors = _.uniqBy(props.stock,'sector');
+
+  const sectorOps = sectors.map((stockItem, index) => {
     return <option key={index} value={index}>{stockItem.sector}</option>
-  })
+  });
 
 
 
   const handleChange = (event) => {
     let index = event.target.value
-    props.handleStockSelected(index);
+    props.onStockSelected(index);
   }
 
   return (
+    <React.Fragment>
     <select
       onChange={handleChange}
        id="Stock-selector"
@@ -28,9 +31,12 @@ const MarketStockSelector = (props) => {
        </select>
        <select
           id="sector-filter"
+          defaultValue="default">
           <option disabled value="default"> by sector</option>
-
+          {sectorOps}
        </select>
+       </React.Fragment>
+
   )
 }
 
