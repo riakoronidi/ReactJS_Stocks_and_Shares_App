@@ -36,10 +36,10 @@ MongoClient.connect("mongodb://localhost:27017", function (err, client) {
     return;
   }
 
-
-  //  API MARKET STOCK COLLECTION
-
   const db = client.db("stock_market_db");
+
+
+    //  API STOCK MARKET COLLECTION
 
   app.get("/market_stock", function(req, res){
     const marketStockCollection = db.collection("market_stock");
@@ -148,6 +148,74 @@ MongoClient.connect("mongodb://localhost:27017", function (err, client) {
     const updatedData = req.body;
     const portfolioCollection = db.collection('portfolio');
     portfolioCollection.update(filterObject, updatedData, function(err, result){
+      if(err){
+        res.status(500);
+        res.send();
+      }
+
+      res.status(204);
+      res.send();
+    });
+  });
+
+
+  // PROFIT COLLECTION
+
+  app.get("/profit", function(req, res){
+    const profitCollection = db.collection("profit");
+    profitCollection.find().toArray(function(err, profit){
+      if(err){
+        console.log(err);
+        res.status(500);
+        res.send();
+      }
+
+      res.json(profit);
+    });
+  })
+
+  app.post("/profit", function(req, res){
+
+    const profitCollection = db.collection("profit");
+    const profitToSave = req.body;
+
+    profitCollection.save(profitToSave, function(err, result){
+      if(err){
+        console.log(err);
+        res.status(500);
+        res.send();
+      }
+
+      console.log("Saved to DB!");
+
+      res.status(201);
+      res.json(profitToSave);
+    })
+  });
+
+  app.delete("/profit", function(req, res){
+    const profitCollection = db.collection("profit");
+
+    const filterObject = {};
+
+    profitCollection.deleteMany(filterObject, function(err, result){
+      if(err){
+        console.log(err);
+        res.status(500);
+        res.send();
+      }
+
+      res.status(204);
+      res.send();
+    });
+  })
+
+  app.put('/profit/:id', function(req, res){
+    const objectID = ObjectID(req.params.id);
+    const filterObject = {_id: objectID};
+    const updatedData = req.body;
+    const profitCollection = db.collection('profit');
+    profitCollection.update(filterObject, updatedData, function(err, result){
       if(err){
         res.status(500);
         res.send();
