@@ -35,6 +35,8 @@ MongoClient.connect("mongodb://localhost:27017", function (err, client) {
     return;
   }
 
+  //  -- STOCK MARKET API --
+
   const db = client.db("stock_market_db");
 
   app.get("/market_stock", function(req, res){
@@ -68,6 +70,23 @@ MongoClient.connect("mongodb://localhost:27017", function (err, client) {
       res.json(stockToSave);
     })
   });
+
+  app.delete("/market_stock", function(req, res){
+    const marketStockCollection = db.collection("market_stock");
+
+    const filterObject = {};
+
+    marketStockCollection.deleteMany(filterObject, function(err, result){
+      if(err){
+        console.log(err);
+        res.status(500);
+        res.send();
+      }
+
+      res.status(204);
+      res.send();
+    });
+  })
 
 });
 
