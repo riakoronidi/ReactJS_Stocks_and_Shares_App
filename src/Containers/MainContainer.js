@@ -21,11 +21,21 @@ class MainContainer extends React.Component {
   //   this.setState({stock});
   // }
 
+  componentDidMount(){
+    fetch("http://localhost:3001/market_stock")
+    .then(response => response.json())
+    // .then(json => {debugger});
+    .then(json => this.setState({stock: json}));
+  }
+
   render(){
+    if(!this.state.stock.length){
+      return null;
+    }
     return(
       <React.Fragment>
         <div className="title-div">
-        <TitleBar />
+          <TitleBar />
         </div>
         <div className="button-div">
           <button className="buttonPortfolio" >Portfolio</button>
@@ -35,8 +45,9 @@ class MainContainer extends React.Component {
           <p>RISERS AND FALLERS</p>
           <img  src="http://www.proactiveinvestors.co.uk/thumbs/upload/MarketReport/Image/2015_06/757z468_risers_fallers_resized.png" alt="TextImage"/>
         </div>
-        <Portfolio portfolio={this.state.portfolio}/>
-
+        <div>
+          <Portfolio portfolio={this.state.stock}/>
+        </div>
       </React.Fragment>
     )
   }
