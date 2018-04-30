@@ -1,6 +1,8 @@
 import React from 'react';
 import TitleBar from '../Components/TitleBar';
-import Portfolio from '../Components/Portfolio';
+// import Portfolio from '../Components/Portfolio';
+// import MarketStock from '../Components/MarketStock';
+
 
 class MainContainer extends React.Component {
   constructor(props) {
@@ -38,6 +40,8 @@ class MainContainer extends React.Component {
           <TitleBar />
         </div>
         <div className="button-div">
+          {/* <button className="buttonPortfolio" onclick={this.handlePortfolio} portfolio={this.state.portfolio}>Portfolio</button>
+          <button className="buttonStock" onclick={this.handleStockMarket} portfolio={this.state.stock}>Stock Market</button>           */}
           <button className="buttonPortfolio" >Portfolio</button>
           <button className="buttonStock" >Stock Market</button>
         </div>
@@ -45,9 +49,9 @@ class MainContainer extends React.Component {
           <p>RISERS AND FALLERS</p>
           <img  src="http://www.proactiveinvestors.co.uk/thumbs/upload/MarketReport/Image/2015_06/757z468_risers_fallers_resized.png" alt="TextImage"/>
         </div>
-        <div>
+        {/* <div>
           <Portfolio portfolio={this.state.stock}/>
-        </div>
+        </div> */}
       </React.Fragment>
     )
   }
