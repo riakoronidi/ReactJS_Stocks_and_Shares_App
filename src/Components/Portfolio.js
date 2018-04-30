@@ -1,4 +1,5 @@
 import React from 'react';
+import DisplayShare from './DisplayShare';
 import _ from 'lodash';
 
 const Portfolio = (props) => {
@@ -12,6 +13,11 @@ const Portfolio = (props) => {
     props.onPortfolioItemSelected(index);
   }
 
+  const sellShare = (index) => {
+    props.portfolio.splice(index);
+  }
+
+
   return (
     <React.Fragment>
      <select
@@ -20,7 +26,8 @@ const Portfolio = (props) => {
     >
       {options}
     </select>
-
+    <DisplayShare/>
+    <button onSubmit={sellShare}>Sell</button>
     </React.Fragment>
   )
 }
