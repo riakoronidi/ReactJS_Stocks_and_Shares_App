@@ -24,7 +24,6 @@ class MainContainer extends React.Component {
   componentDidMount(){
     fetch("http://localhost:3001/market_stock")
     .then(response => response.json())
-    // .then(json => {debugger});
     .then(json => this.setState({stock: json}));
   }
 
