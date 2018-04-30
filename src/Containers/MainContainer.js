@@ -1,7 +1,8 @@
 import React from 'react';
 import TitleBar from '../Components/TitleBar';
-// import Portfolio from '../Components/Portfolio';
-// import MarketStock from '../Components/MarketStock';
+import Portfolio from '../Components/Portfolio';
+import MarketStock from '../Components/MarketStock';
+import {BrowserRouter as Router, Route, Link} from "react-router-dom";
 
 
 class MainContainer extends React.Component {
@@ -16,7 +17,9 @@ class MainContainer extends React.Component {
   }
 
   // handlePortfolio(){
-  //   this.setState({portfolio});
+  //   // event.preventDefault();
+  //   console.log(this.state.portfolio);
+  //
   // }
   //
   // handleStockMarket(){
@@ -34,25 +37,28 @@ class MainContainer extends React.Component {
     if(!this.state.stock.length){
       return null;
     }
+
     return(
-      <React.Fragment>
-        <div className="title-div">
-          <TitleBar />
-        </div>
-        <div className="button-div">
-          {/* <button className="buttonPortfolio" onclick={this.handlePortfolio} portfolio={this.state.portfolio}>Portfolio</button>
-          <button className="buttonStock" onclick={this.handleStockMarket} portfolio={this.state.stock}>Stock Market</button>           */}
-          <button className="buttonPortfolio" >Portfolio</button>
-          <button className="buttonStock" >Stock Market</button>
-        </div>
-        <div className="stock-div">
-          <p>RISERS AND FALLERS</p>
-          <img  src="http://www.proactiveinvestors.co.uk/thumbs/upload/MarketReport/Image/2015_06/757z468_risers_fallers_resized.png" alt="TextImage"/>
-        </div>
-        {/* <div>
-          <Portfolio portfolio={this.state.stock}/>
-        </div> */}
-      </React.Fragment>
+      <Router>
+        <React.Fragment>
+          <div className="title-div">
+            <TitleBar />
+          </div>
+          <div className="button-div">
+            <Route path = "/portfolio" render={()=> <Portfolio portfolio={this.state.portfolio}/>}/>
+            <Route path = "/market_stock" render={()=> <Portfolio portfolio={this.state.stock}/>}/>
+
+            <Link to='/portfolio'><button className="buttonPortfolio" >Portfolio</button></Link>
+            <Link to='/market_stock'><button className="buttonStock" >Stock Market</button></Link>
+
+          </div>
+          <div className="stock-div">
+            <p>RISERS AND FALLERS</p>
+            <img  src="http://www.proactiveinvestors.co.uk/thumbs/upload/MarketReport/Image/2015_06/757z468_risers_fallers_resized.png" alt="TextImage"/>
+          </div>
+
+        </React.Fragment>
+      </Router>
     )
   }
 
