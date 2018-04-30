@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import MarketStock from "./Components/MarketStock"
+import MainContainer from './Containers/MainContainer';
 import './App.css';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <p>Go Team!</p>
-      </div>
+      <React.Fragment>
+        <MainContainer />
+      </React.Fragment>
     );
   }
 }
