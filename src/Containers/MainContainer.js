@@ -1,5 +1,6 @@
 import React from 'react';
 import TitleBar from '../Components/TitleBar';
+import Portfolio from '../Components/Portfolio';
 
 class MainContainer extends React.Component {
   constructor(props) {
@@ -34,6 +35,7 @@ class MainContainer extends React.Component {
           <p>RISERS AND FALLERS</p>
           <img  src="http://www.proactiveinvestors.co.uk/thumbs/upload/MarketReport/Image/2015_06/757z468_risers_fallers_resized.png" alt="TextImage"/>
         </div>
+        <Portfolio portfolio={this.state.portfolio}/>
 
       </React.Fragment>
     )
