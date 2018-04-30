@@ -3,7 +3,6 @@ import DisplayShare from './DisplayShare';
 import _ from 'lodash';
 
 const Portfolio = (props) => {
-
   const options = props.portfolio.map((share, index) => {
     return <option key={index} value={index}>{share.symbol}</option>
   });
