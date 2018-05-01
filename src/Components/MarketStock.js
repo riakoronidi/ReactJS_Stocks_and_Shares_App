@@ -9,12 +9,22 @@ const MarketStock = (props) => {
     return <option key={index} value={index}>{stockItem.symbol}</option>
   });
 
-  const sectors = _.uniqBy(props.stock,'sector');
+  // const sectors = _.uniqBy(props.stock,'sector');
 
-  const sectorOps = sectors.map((stockItem, index) => {
+  const sectors = props.stock.map((stockItem, index) => {
     return <option key={index} value={index}>{stockItem.sector}</option>
   });
 
+  const filterBySector = () => {
+    const newSectors = [];
+    debugger;
+    for (let item of sectors){
+      if(item.sector){
+        newSectors.push(item)
+      }
+
+    }
+  }
 
   const handleChange = (event) => {
     let index = event.target.value
@@ -37,12 +47,13 @@ const MarketStock = (props) => {
         id="sector-filter"
         defaultValue="default">
         <option disabled value="default"> by sector</option>
-        {sectorOps}
+        {sectors}
       </select>
-      <NewPortfolioStock currentStock={props.currentStock}/>  
-  </React.Fragment>
+      <button className="button" onClick={this.filterBySector}>Filter By Sector</button>
+      <NewPortfolioStock currentStock={props.currentStock}/>
+    </React.Fragment>
 
-)
+  )
 }
 
 // select a stock to buy, save it by index to a selectedStock array
