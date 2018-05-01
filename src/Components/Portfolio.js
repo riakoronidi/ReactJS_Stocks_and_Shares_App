@@ -39,26 +39,35 @@ const Portfolio = (props) => {
     return total;
   }
 
-  const handleButton = ()=>{
-    console.log("Sell Button clicked");
-  }
-  return (
-    <React.Fragment>
-      <select
-        onChange={handlePortfolioSelect}
-        id="portfolio-selector"
-        defaultValue="default"
-        >
-          <option disabled value='default'> view shares</option>
-          {options}
-        </select>
-        <DisplayShare
-          share={props.selectedShare}
-        />
-        <button onClick={handleButton}>Sell</button>
-        <h4>Total Portfolio Value: £{totalValue()}</h4>
-      </React.Fragment>
-    )
-  }
 
-  export default Portfolio;
+  const handleButton = (event)=>{
+    event.preventDefault()
+    const item = props.selectedShare;
+    console.log(item);
+    fetch('http://localhost:3001/portfolio' + '/' + item._id, {
+      method: 'DELETE'
+      }).then((res) => res.json())
+      .then((data) =>  console.log(data))
+      .catch((err)=> console.log(err))
+    }
+
+    return (
+      <React.Fragment>
+        <select
+          onChange={handlePortfolioSelect}
+          id="portfolio-selector"
+          defaultValue="default"
+          >
+            <option disabled value='default'> view shares</option>
+            {options}
+          </select>
+          <DisplayShare
+            share={props.selectedShare}
+          />
+          <button onClick={handleButton}>Sell</button>
+          <h4>Total Portfolio Value: £{totalValue()}</h4>
+        </React.Fragment>
+      )
+    }
+
+    export default Portfolio;
