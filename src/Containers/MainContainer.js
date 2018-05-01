@@ -9,12 +9,14 @@ import {BrowserRouter as Router, Route} from "react-router-dom";
 class MainContainer extends React.Component {
   constructor(props) {
     super(props);
-    // this.handlePortfolio = handlePortfolio.bind(this);
+    this.handlePortfolioSelected = this.handlePortfolioSelected.bind(this);
     this.handleStockSelected = this.handleStockSelected.bind(this);
+    // this.handleStockMarket = handleStockMarket.bind(this);
     this.state = {
       stock: [],
-      currentStock: null,
-      portfolio: []
+      portfolio: [],
+      currentShare: null,
+      currentStock: null,   
     }
   }
 
@@ -32,6 +34,17 @@ class MainContainer extends React.Component {
     fetch("http://localhost:3001/market_stock")
     .then(response => response.json())
     .then(json => this.setState({stock: json}));
+
+    fetch("http://localhost:3001/portfolio")
+    .then(response => response.json())
+    .then(json => this.setState({portfolio: json}));
+  }
+
+  handlePortfolioSelected(index){
+    // debugger;
+    const selectedShare = this.state.portfolio[index];
+    this.setState({currentShare: selectedShare});
+
   }
 
   handleStockSelected(index){
@@ -43,12 +56,15 @@ class MainContainer extends React.Component {
     if(!this.state.stock.length){
       return null;
     }
+    if(!this.state.portfolio.length){
+      return null;
+    }
 
     return(
       <Router>
         <React.Fragment>
           <Route exact path="/" component={Home} />
-          <Route path = "/portfolio" render={()=> <Portfolio portfolio={this.state.portfolio}/>}/>
+          <Route path = "/portfolio" render={()=> <Portfolio portfolio={this.state.portfolio} onCurrentShare={this.handlePortfolioSelected} selectedShare={this.state.currentShare}/>}/>
           <Route path = "/market_stock" render={()=> <MarketStock stock={this.state.stock} onStockSelected={this.handleStockSelected} newStock={this.state.currentStock} currentStock={this.state.currentStock}/>}/>
         </React.Fragment>
       </Router>
