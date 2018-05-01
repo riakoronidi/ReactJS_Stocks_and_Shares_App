@@ -1,4 +1,5 @@
 import React from 'react';
+import NewPortfolioStock from './NewPortfolioStock';
 import _ from 'lodash';
 
 const MarketStock = (props) => {
@@ -38,6 +39,7 @@ const MarketStock = (props) => {
         <option disabled value="default"> by sector</option>
         {sectorOps}
       </select>
+      <NewPortfolioStock currentStock={props.currentStock}/>  
   </React.Fragment>
 
 )
