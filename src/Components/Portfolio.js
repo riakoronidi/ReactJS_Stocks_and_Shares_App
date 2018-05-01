@@ -19,16 +19,19 @@ const Portfolio = (props) => {
 
   return (
     <React.Fragment>
-     <select
-    onChange={handlePortfolioSelect}
-    id="portfolio-selector"
-    >
-      {options}
-    </select>
-    <DisplayShare/>
-    <button onSubmit={sellShare}>Sell</button>
-    </React.Fragment>
-  )
-}
+      <span className="portfolio-body">
+        {/* <select
+          onChange={handlePortfolioSelect}
+          id="portfolio-selector"
+          >
+            {options}
+          </select>
+          <DisplayShare/>
+          <button onSubmit={sellShare}>Sell</button> */}
+          <p>test</p>
+        </span>
+      </React.Fragment>
+    )
+  }
 
-export default Portfolio;
+  export default Portfolio;
