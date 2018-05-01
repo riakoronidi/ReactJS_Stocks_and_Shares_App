@@ -16,6 +16,8 @@ const MarketStock = (props) => {
   });
 
 
+
+
   const handleChange = (event) => {
     let index = event.target.value
     props.onStockSelected(index);
@@ -39,7 +41,7 @@ const MarketStock = (props) => {
         <option disabled value="default"> by sector</option>
         {sectorOps}
       </select>
-      <NewPortfolioStock currentStock={props.currentStock}/>  
+      <NewPortfolioStock currentStock={props.currentStock}/>
   </React.Fragment>
 
 )
