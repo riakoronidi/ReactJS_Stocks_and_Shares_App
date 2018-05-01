@@ -12,12 +12,22 @@ class NewPortfolioStock extends React.Component {
   }
 
   handleFormSubmit = (event) => {
-    event.preventDefault()
-    const buyOrder = this.props.currentStock
-    buyOrder.volume = parseInt(this.state.volume)
-    buyOrder._id = null
-    debugger;
-  }
+     event.preventDefault()
+     const buyOrder = this.props.currentStock
+     buyOrder.volume = parseInt(this.state.volume)
+     delete buyOrder._id;
+     console.log(buyOrder);
+     fetch('http://localhost:3001/portfolio', {
+       method: 'POST',
+       headers : {
+         'Accept': 'application/json',
+         'Content-Type': 'application/json'
+       },
+       body:JSON.stringify(buyOrder)
+     }).then((res) => res.json())
+     .then((data) =>  console.log(data))
+     .catch((err)=>console.log(err))
+   }
 
   handleVolumeChange = (event) => {
     this.setState({volume: event.target.value});
