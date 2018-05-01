@@ -11,14 +11,18 @@ class MainContainer extends React.Component {
     super(props);
     this.handlePortfolioSelected = this.handlePortfolioSelected.bind(this);
     this.handleStockSelected = this.handleStockSelected.bind(this);
+    this.handleSectorSelected = this.handleSectorSelected.bind(this);
     // this.handleStockMarket = handleStockMarket.bind(this);
     this.state = {
       stock: [],
       portfolio: [],
       currentShare: null,
-      currentStock: null,   
+      currentStock: null,
+      sector: null
     }
   }
+
+
 
   // handlePortfolio(){
   //   // event.preventDefault();
@@ -47,6 +51,10 @@ class MainContainer extends React.Component {
 
   }
 
+  handleSectorSelected(sector){
+    this.setState({currentSector: sector});
+  }
+
   handleStockSelected(index){
     const selectedStock = this.state.stock[index];
     this.setState({currentStock: selectedStock});
@@ -56,16 +64,13 @@ class MainContainer extends React.Component {
     if(!this.state.stock.length){
       return null;
     }
-    if(!this.state.portfolio.length){
-      return null;
-    }
 
     return(
       <Router>
         <React.Fragment>
           <Route exact path="/" component={Home} />
           <Route path = "/portfolio" render={()=> <Portfolio portfolio={this.state.portfolio} onCurrentShare={this.handlePortfolioSelected} selectedShare={this.state.currentShare}/>}/>
-          <Route path = "/market_stock" render={()=> <MarketStock stock={this.state.stock} onStockSelected={this.handleStockSelected} newStock={this.state.currentStock} currentStock={this.state.currentStock}/>}/>
+          <Route path = "/market_stock" render={()=> <MarketStock stock={this.state.stock} onStockSelected={this.handleStockSelected} newStock={this.state.currentStock} currentStock={this.state.currentStock} onSectorSelected={this.handleSectorSelected} currentSector={this.state.sector}/> }/>
         </React.Fragment>
       </Router>
 

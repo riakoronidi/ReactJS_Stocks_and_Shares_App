@@ -3,17 +3,24 @@ import NewPortfolioStock from './NewPortfolioStock';
 import _ from 'lodash';
 
 const MarketStock = (props) => {
-  // debugger;
+  debugger;
 
   const options = props.stock.map((stockItem, index) => {
+
     return <option key={index} value={index}>{stockItem.symbol}</option>
+    debugger;
+
+
   });
 
   const sectors = _.uniqBy(props.stock,'sector');
 
   const sectorOps = sectors.map((stockItem, index) => {
-    return <option key={index} value={index}>{stockItem.sector}</option>
+    return <option key={index} value={stockItem.sector}>{stockItem.sector}</option>
   });
+
+
+
 
 
 
@@ -21,7 +28,7 @@ const MarketStock = (props) => {
   const handleChange = (event) => {
     let index = event.target.value
     props.onStockSelected(index);
-    debugger;
+
   }
 
 

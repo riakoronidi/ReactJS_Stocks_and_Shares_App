@@ -34,7 +34,7 @@ class NewPortfolioStock extends React.Component {
      let newWalletTotal = this.state.wallet - this.totalPrice();
      debugger;
      this.setState({wallet: newWalletTotal});
-
+     this.setState({volume: "0"});
    }
 
   handleVolumeChange = (event) => {
