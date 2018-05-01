@@ -13,15 +13,14 @@ const MarketStock = (props) => {
     return <option key={index} value={index}>{stockItem.sector}</option>
   });
 
-  const selectedStockItem = sectors.map((chosenStockItem, index) => {
-    return <option key={index} value={index}>{chosenStockItem.sector}</option>
-  });
-
 
   const handleChange = (event) => {
     let index = event.target.value
     props.onStockSelected(index);
+    debugger;
   }
+
+
 
   return (
     <React.Fragment>
@@ -38,19 +37,6 @@ const MarketStock = (props) => {
         <option disabled value="default"> by sector</option>
         {sectorOps}
       </select>
-
-      <form id="form1" action="http://localhost:3001/portfolio" method="post">
-      <label type="text" >{selectedStockItem.symbol}</label>
-      <label type="text" >{selectedStockItem.companyName}</label>
-      <label type="text" >{selectedStockItem.sector}</label>
-      <label type="text" >{selectedStockItem.priceChange}</label>
-      <label type="text" >{selectedStockItem.priceChangePercent}</label>
-      <label type="text" >{selectedStockItem.price}</label>
-      <label type="text" >{selectedStockItem.week52High}</label>
-      <input type="text" >{selectedStockItem.volume}</input>
-      <input type="button" value="Submit">Buy now</input>
-    </form>
-
   </React.Fragment>
 
 )
