@@ -6,6 +6,7 @@ class NewPortfolioStock extends React.Component {
     // this.selectedStockForm = this.selectStockForm.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
     this.handleVolumeChange = this.handleVolumeChange.bind(this);
+    this.totalPrice = this.totalPrice.bind(this);
     this.state = {
       volume: "0"
     }
@@ -31,6 +32,11 @@ class NewPortfolioStock extends React.Component {
 
   handleVolumeChange = (event) => {
     this.setState({volume: event.target.value});
+  }
+
+  totalPrice = () => {
+    let total = this.props.currentStock.price * this.state.volume;
+    return total;
   }
 
   render(){
@@ -68,6 +74,7 @@ class NewPortfolioStock extends React.Component {
         </label>
         <input type="submit" value="Submit" />
       </form>
+      <h3>{this.totalPrice()}</h3>
     </React.Fragment>
   )
   }
