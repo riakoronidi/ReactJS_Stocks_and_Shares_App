@@ -1,6 +1,6 @@
 import React from 'react';
 import DisplayShare from './DisplayShare';
-import _ from 'lodash';
+// import _ from 'lodash';
 
 const Portfolio = (props) => {
   const options = props.portfolio.map((share, index) => {
@@ -20,15 +20,14 @@ const Portfolio = (props) => {
   return (
     <React.Fragment>
       <span className="portfolio-body">
-        {/* <select
+        <select
           onChange={handlePortfolioSelect}
           id="portfolio-selector"
           >
             {options}
           </select>
           <DisplayShare/>
-          <button onSubmit={sellShare}>Sell</button> */}
-          <p>test</p>
+          <button onSubmit={sellShare}>Sell</button>
         </span>
       </React.Fragment>
     )

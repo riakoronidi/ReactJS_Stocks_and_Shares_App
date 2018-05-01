@@ -4,29 +4,29 @@ import _ from 'lodash';
 const MarketStock = (props) => {
   // debugger;
 
-  // const options = props.stock.map((stockItem, index) => {
-  //   return <option key={index} value={index}>{stockItem.symbol}</option>
-  // });
-  //
-  // const sectors = _.uniqBy(props.stock,'sector');
-  //
-  // const sectorOps = sectors.map((stockItem, index) => {
-  //   return <option key={index} value={index}>{stockItem.sector}</option>
-  // });
-  //
-  // const selectedStockItem = sectors.map((chosenStockItem, index) => {
-  //   return <option key={index} value={index}>{chosenStockItem.sector}</option>
-  // });
-  //
-  //
-  // const handleChange = (event) => {
-  //   let index = event.target.value
-  //   props.onStockSelected(index);
-  // }
+  const options = props.stock.map((stockItem, index) => {
+    return <option key={index} value={index}>{stockItem.symbol}</option>
+  });
+
+  const sectors = _.uniqBy(props.stock,'sector');
+
+  const sectorOps = sectors.map((stockItem, index) => {
+    return <option key={index} value={index}>{stockItem.sector}</option>
+  });
+
+  const selectedStockItem = sectors.map((chosenStockItem, index) => {
+    return <option key={index} value={index}>{chosenStockItem.sector}</option>
+  });
+
+
+  const handleChange = (event) => {
+    let index = event.target.value
+    props.onStockSelected(index);
+  }
 
   return (
     <React.Fragment>
-      {/* <select
+      <select
         onChange={handleChange}
         id="Stock-selector"
         defaultValue="default">
@@ -49,9 +49,8 @@ const MarketStock = (props) => {
       <label type="text" >{selectedStockItem.price}</label>
       <label type="text" >{selectedStockItem.week52High}</label>
       <input type="text" >{selectedStockItem.volume}</input>
-      <input type="button" value="Submit">Buy now</input>
-    </form> */}
-    <p>test</p>
+      <input type="button" value="Submit"></input>
+    </form>
 
   </React.Fragment>
 

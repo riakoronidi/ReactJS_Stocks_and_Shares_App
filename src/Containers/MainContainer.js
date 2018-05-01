@@ -2,7 +2,7 @@ import React from 'react';
 import Home from '../Components/Home';
 import Portfolio from '../Components/Portfolio';
 import MarketStock from '../Components/MarketStock';
-import {BrowserRouter as Router, Route, Link} from "react-router-dom";
+import {BrowserRouter as Router, Route} from "react-router-dom";
 // import {Route,  NavLink,  HashRouter} from "react-router-dom";
 
 
@@ -41,7 +41,7 @@ class MainContainer extends React.Component {
     return(
       <Router>
         <React.Fragment>
-          <Route exact path="/" component={Home} data={this.state.portfolio} stock_data={this.state.stock}/>
+          <Route exact path="/" component={Home} />
           <Route path = "/portfolio" render={()=> <Portfolio portfolio={this.state.portfolio}/>}/>
           <Route path = "/market_stock" render={()=> <MarketStock stock={this.state.stock}/>}/>
         </React.Fragment>
