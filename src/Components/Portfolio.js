@@ -17,6 +17,23 @@ const Portfolio = (props) => {
     props.onCurrentShare(index);
   }
 
+  const filterStockMarketByPortfolioStockName = () => {
+    if(props.selectedShare !== null){
+      let filteredStock = _.filter(props.stock, {"companyName": props.selectedShare.companyName})
+      return filteredStock[0].price
+    };
+  };
+
+  const calculateDifferenceBetweenStockMarketAndPortfolioStock = () => {
+      if(props.selectedShare !== null){
+      let filteredStock = _.filter(props.stock, {"companyName": props.selectedShare.companyName})
+      let totalStockMarketShareValue = filteredStock[0].price * filteredStock[0].volume
+      let totalPortfolioShareValue = props.selectedShare.price * props.selectedShare.volume
+      let profitOrLoss = totalStockMarketShareValue - totalPortfolioShareValue
+      return profitOrLoss
+    }
+    };
+
   const comparePrices = () => {
     if(props.selectedShare !== null && props.selectedStock !== null){
 
@@ -124,9 +141,14 @@ const Portfolio = (props) => {
         <button onClick={handleClick}>Delete ALL</button>
 
         {/* <input type="button" value="Delete ALL" onClick={this.handleClick}/> */}
+        <h3>Portfolio Information</h3>
         <h4>Total Portfolio Value: £{totalValue()}</h4>
         <h4>Current Balance Value: £{props.wallet}</h4>
-        <h4>Selected Stock Value: £{shareValue()}</h4>
+        <h4>Selected Share Value: £{shareValue()}</h4>
+        <br />
+        <h3>Market Comparison</h3>
+        <h4>Current StockMarket Value of Share: £{filterStockMarketByPortfolioStockName()}</h4>
+        <h4>Current Profit of Share: £{calculateDifferenceBetweenStockMarketAndPortfolioStock()}</h4>
       </React.Fragment>
     )
   }
