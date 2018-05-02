@@ -1,5 +1,6 @@
 import React from 'react';
 import Home from '../Components/Home';
+import Navbar from "../Components/Navbar";
 import Portfolio from '../Components/Portfolio';
 import MarketStock from '../Components/MarketStock';
 import NewPortfolioStock from '../Components/NewPortfolioStock';
@@ -94,7 +95,7 @@ class MainContainer extends React.Component {
     return(
       <Router>
         <React.Fragment>
-
+          <Navbar />
           <Route path = "/portfolio" render={()=> <Portfolio portfolio={this.state.portfolio} onCurrentShare={this.handlePortfolioSelected} selectedShare={this.state.currentShare} wallet={this.state.wallet} handleWallet={this.updateWallet} portfolioRunner={this.portfolioRunner} stock={this.state.stock}/>}/>
           <Route exact path="/" component={Home} stock={this.state.stock}/>
           <Route path = "/market_stock" render={()=> <MarketStock stock={this.state.stock} onStockSelected={this.handleStockSelected} newStock={this.state.currentStock} currentStock={this.state.currentStock} onSectorSelected={this.handleSectorSelected} currentSector={this.state.sector} wallet={this.state.wallet} handleWallet={this.updateWallet}
