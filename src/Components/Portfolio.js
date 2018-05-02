@@ -109,24 +109,26 @@ const Portfolio = (props) => {
 
   return (
     <React.Fragment>
-      <select
-        onChange={handlePortfolioSelect}
-        id="portfolio-selector"
-        defaultValue="default"
-        >
-          <option disabled value='default'> view shares</option>
-          {options}
-        </select>
-        <DisplayShare
-          share={props.selectedShare}
-        />
-        <button onClick={handleButton}>Sell</button>
-        <button onClick={handleClick}>Delete ALL</button>
+      <div className="portfolio-div">
+        <select
+          onChange={handlePortfolioSelect}
+          id="portfolio-selector"
+          defaultValue="default"
+          >
+            <option disabled value='default'> view shares</option>
+            {options}
+          </select>
+          <DisplayShare
+            share={props.selectedShare}
+          />
+          <button onClick={handleButton}>Sell</button>
+          <button onClick={handleClick}>Delete ALL</button>
 
-        {/* <input type="button" value="Delete ALL" onClick={this.handleClick}/> */}
-        <h4>Total Portfolio Value: £{totalValue()}</h4>
-        <h4>Current Balance Value: £{props.wallet}</h4>
-        <h4>Selected Stock Value: £{shareValue()}</h4>
+          {/* <input type="button" value="Delete ALL" onClick={this.handleClick}/> */}
+          <h4>Total Portfolio Value: £{totalValue()}</h4>
+          <h4>Current Balance Value: £{props.wallet}</h4>
+          <h4>Selected Stock Value: £{shareValue()}</h4>
+        </div>
       </React.Fragment>
     )
   }

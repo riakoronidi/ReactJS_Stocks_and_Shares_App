@@ -14,7 +14,7 @@ const MarketStock = (props) => {
   // const sectors = _.uniqBy(props.stock,'sector');
 
 
-   const sectors = props.stock.map((stockItem, index) => {
+  const sectors = props.stock.map((stockItem, index) => {
     return <option key={index} value={index}>{stockItem.sector}</option>
   });
 
@@ -43,21 +43,23 @@ const MarketStock = (props) => {
 
   return (
     <React.Fragment>
-      <select
-        onChange={handleChange}
-        id="Stock-selector"
-        defaultValue="default">
-        <option disabled value="default"> search market</option>
-        {options}
-      </select>
-      <select
-        id="sector-filter"
-        defaultValue="default">
-        <option disabled value="default"> by sector</option>
-        {sectors}
-      </select>
-      <button className="button" onClick={this.filterBySector}>Filter By Sector</button>
-      <NewPortfolioStock wallet={props.wallet} currentStock={props.currentStock} onHandleWallet={props.handleWallet}/>
+      <div className="marketstock-div">
+        <select
+          onChange={handleChange}
+          id="Stock-selector"
+          defaultValue="default">
+          <option disabled value="default"> search market</option>
+          {options}
+        </select>
+        <select
+          id="sector-filter"
+          defaultValue="default">
+          <option disabled value="default"> by sector</option>
+          {sectors}
+        </select>
+        <button className="button" onClick={this.filterBySector}>Filter By Sector</button>
+        <NewPortfolioStock wallet={props.wallet} currentStock={props.currentStock} onHandleWallet={props.handleWallet}/>
+      </div>
     </React.Fragment>
 
   )
