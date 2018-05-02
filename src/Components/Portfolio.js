@@ -34,7 +34,8 @@ const Portfolio = (props) => {
   const calculateDifferenceBetweenStockMarketAndPortfolioStock = () => {
       if(props.selectedShare !== null){
       let filteredStock = _.filter(props.stock, {"companyName": props.selectedShare.companyName})
-      let totalStockMarketShareValue = filteredStock[0].price * filteredStock[0].volume
+      debugger;
+      let totalStockMarketShareValue = filteredStock[0].price * props.selectedShare.volume
       let totalPortfolioShareValue = props.selectedShare.price * props.selectedShare.volume
       let profitOrLoss = totalStockMarketShareValue - totalPortfolioShareValue
       return profitOrLoss
