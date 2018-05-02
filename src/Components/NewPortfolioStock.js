@@ -89,8 +89,8 @@ class NewPortfolioStock extends React.Component {
         </label>
         <input type="submit" value="Submit" />
       </form>
-      <h3>Value{this.totalPrice()}</h3>
-      <h3>Wallet{this.viewWallet()}</h3>
+      <h3>Value: £{this.totalPrice()}</h3>
+      <h3>Wallet: £{this.viewWallet()}</h3>
     </React.Fragment>
   )
   }
