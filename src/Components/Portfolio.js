@@ -24,6 +24,13 @@ const Portfolio = (props) => {
     };
   };
 
+  const filterStockMarketPriceChangePercent = () => {
+    if(props.selectedShare !== null){
+      let filteredStock = _.filter(props.stock, {"companyName": props.selectedShare.companyName})
+      return filteredStock[0].priceChangePercent
+    };
+  };
+
   const calculateDifferenceBetweenStockMarketAndPortfolioStock = () => {
       if(props.selectedShare !== null){
       let filteredStock = _.filter(props.stock, {"companyName": props.selectedShare.companyName})
@@ -145,10 +152,11 @@ const Portfolio = (props) => {
         <h4>Total Portfolio Value: £{totalValue()}</h4>
         <h4>Current Balance Value: £{props.wallet}</h4>
         <h4>Selected Share Value: £{shareValue()}</h4>
+        <h4>Current Profit/Loss of Share: £{calculateDifferenceBetweenStockMarketAndPortfolioStock()}</h4>
         <br />
         <h3>Market Comparison</h3>
-        <h4>Current StockMarket Value of Share: £{filterStockMarketByPortfolioStockName()}</h4>
-        <h4>Current Profit of Share: £{calculateDifferenceBetweenStockMarketAndPortfolioStock()}</h4>
+        <h4>Share Percent Change: £{filterStockMarketPriceChangePercent()}</h4>
+        <h4>StockMarket Value of Share: £{filterStockMarketByPortfolioStockName()}</h4>
       </React.Fragment>
     )
   }
