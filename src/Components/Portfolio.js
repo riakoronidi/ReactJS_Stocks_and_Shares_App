@@ -8,10 +8,35 @@ const Portfolio = (props) => {
     return <option key={index} value={index}>{share.companyName}</option>
   });
 
+  //
+  // const stockSharePrice = props.
+
   const handlePortfolioSelect = (event) => {
     // debugger;
     let index = event.target.value;
     props.onCurrentShare(index);
+  }
+
+  const comparePrices = () => {
+    if(props.selectedShare !== null && props.selectedStock !== null){
+
+      console.log(props.selectedShare.price);
+      console.log(props.selectedStock.price);
+
+      // update a stock market object with a new price etc
+      // compare our stock market object against portfolio object
+      // filter stock array by chosen portfolio objects companyName
+      //
+      // if you sell you add the combined sell price to the total
+
+      //
+    }
+    //       debugger;
+    // if(!props === undefined){
+    //   let portfolioShare = props.currentShare.price
+    //   console.log(portfolioShare);
+    //   let stockShare = props.currentStock.price
+    //   console.log(stockShare);
   }
 
   // const sellShares = (share) => {
@@ -32,12 +57,19 @@ const Portfolio = (props) => {
   // the profit/loss should then be updated in the database
 
   const totalValue = () => {
-    let total = 0;
-    for(let share of props.portfolio){
-      total+=share.price * share.volume;
+    if(props.portfolio !== []){
+      let total = 0;
+      for(let share of props.portfolio){
+        total+=share.price * share.volume;
+      }return total;
     }
-    return total;
   }
+
+  // let total = 0;
+  // for(let share of props.portfolio){
+  //   total+=share.price * share.volume;
+  // }
+  // return total;
 
 
 
@@ -57,9 +89,9 @@ const Portfolio = (props) => {
     console.log("ALL DELETED");
     fetch('http://localhost:3001/portfolio', {
       method: 'DELETE'
-      }).then((res) => res.json())
-      .then((data) =>  console.log(data))
-      .catch((err)=> console.log(err))
+    }).then((res) => res.json())
+    .then((data) =>  console.log(data))
+    .catch((err)=> console.log(err))
   }
 
 

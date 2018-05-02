@@ -60,7 +60,7 @@ const MarketStock = (props) => {
         {sectors}
       </select>
       <button className="button" onClick={this.filterBySector}>Filter By Sector</button>
-      <NewPortfolioStock currentStock={props.currentStock}/>
+      <NewPortfolioStock wallet={props.wallet} currentStock={props.currentStock}/>
     </React.Fragment>
 
   )

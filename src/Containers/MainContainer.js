@@ -18,7 +18,8 @@ class MainContainer extends React.Component {
       portfolio: [],
       currentShare: null,
       currentStock: null,
-      sector: null
+      sector: null,
+      wallet: "10000000"
     }
   }
 
@@ -69,8 +70,8 @@ class MainContainer extends React.Component {
       <Router>
         <React.Fragment>
           <Route exact path="/" component={Home} />
-          <Route path = "/portfolio" render={()=> <Portfolio portfolio={this.state.portfolio} onCurrentShare={this.handlePortfolioSelected} selectedShare={this.state.currentShare}/>}/>
-          <Route path = "/market_stock" render={()=> <MarketStock stock={this.state.stock} onStockSelected={this.handleStockSelected} newStock={this.state.currentStock} currentStock={this.state.currentStock} onSectorSelected={this.handleSectorSelected} currentSector={this.state.sector}/> }/>
+          <Route path = "/portfolio" render={()=> <Portfolio portfolio={this.state.portfolio} onCurrentShare={this.handlePortfolioSelected} selectedShare={this.state.currentShare} wallet={this.state.wallet}/>}/>
+          <Route path = "/market_stock" render={()=> <MarketStock stock={this.state.stock} onStockSelected={this.handleStockSelected} newStock={this.state.currentStock} currentStock={this.state.currentStock} onSectorSelected={this.handleSectorSelected} currentSector={this.state.sector} wallet={this.state.wallet}/> }/>
         </React.Fragment>
       </Router>
 
