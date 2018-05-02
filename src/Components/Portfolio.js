@@ -92,6 +92,7 @@ const Portfolio = (props) => {
     .then((data) =>  console.log(data))
     .catch((err)=> console.log(err))
     updateBalanceBySellPrice()
+    props.portfolioRunner()
   }
 
   const handleClick = (event)=>{
@@ -103,9 +104,6 @@ const Portfolio = (props) => {
     .then((data) =>  console.log(data))
     .catch((err)=> console.log(err))
   }
-
-
-
 
 
 
