@@ -6,7 +6,7 @@ const MarketStock = (props) => {
 
   const options = props.stock.map((stockItem, index) => {
 
-    return <option key={index} value={index}>{stockItem.symbol}</option>
+    return <option key={index} value={index}>{stockItem.companyName}</option>
 
 
   });
@@ -20,12 +20,15 @@ const MarketStock = (props) => {
 
   const filterBySector = () => {
     const newSectors = [];
+    debugger;
+
     for (let item of sectors){
       if(item.sector){
         newSectors.push(item)
       }
-
     }
+    //map through newSectors
+    //display items
   }
 
 
