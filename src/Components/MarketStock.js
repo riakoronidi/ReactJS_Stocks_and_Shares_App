@@ -19,17 +19,17 @@ const MarketStock = (props) => {
   });
 
   const selectedSectors = props.sectorStock.map((item, index) => {
-      return <p key={index}>{item.companyName}</p>;
-    })
+    return <ol key={index}>{item.companyName}</ol>;
+  })
 
 
 
 
-const handleChangeSector= (event) => {
-  let sector = event.target.value;
-  props.onSelectedBySector(sector);
+  const handleChangeSector= (event) => {
+    let sector = event.target.value;
+    props.onSelectedBySector(sector);
 
-}
+  }
 
 
 
@@ -43,29 +43,31 @@ const handleChangeSector= (event) => {
 
   return (
     <React.Fragment>
-     <div className="marketstock-div">
-      <select
-        onChange={handleChange}
-        id="Stock-selector"
-        defaultValue="default">
-        <option disabled value="default"> search market</option>
-        {options}
-      </select>
-      <select
-        onChange={handleChangeSector}
-        id="sector-filter"
-        defaultValue="default">
-        <option disabled value="default"> by sector</option>
-        {sectors}
-      </select>
-      {selectedSectors}
-      <NewPortfolioStock wallet={props.wallet} currentStock={props.currentStock} onHandleWallet={props.handleWallet}/>
-      <h3>News</h3>
-      <p>Paracutes for sale!</p>
-      <p>Buy low sell high!</p>
-      <p>Investing in stock markets is a gamble: while you could win small or win big,</p>
-      <p>you could lose small or lose big – and end up empty-handed.</p>
-     </div>
+      <div className="child-div">
+        <select
+          onChange={handleChange}
+          id="Stock-selector"
+          defaultValue="default">
+          <option disabled value="default"> search market</option>
+          {options}
+        </select>
+        <select
+          onChange={handleChangeSector}
+          id="sector-filter"
+          defaultValue="default">
+          <option disabled value="default"> by sector</option>
+          {sectors}
+        </select>
+        {selectedSectors}
+        <NewPortfolioStock wallet={props.wallet} currentStock={props.currentStock} onHandleWallet={props.handleWallet}/>
+        <div className="news-div">
+          <h3><i>News</i></h3>
+          <h5>Paracutes for sale!</h5>
+          <h5>Buy low sell high!</h5>
+          <h5>Investing in stock markets is a gamble: while you could win small or win big.</h5>
+          <h5>You could lose small or lose big – and end up empty-handed.</h5>
+        </div>
+      </div>
     </React.Fragment>
 
   )

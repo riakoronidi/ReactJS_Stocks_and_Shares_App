@@ -32,14 +32,14 @@ const Portfolio = (props) => {
   };
 
   const calculateDifferenceBetweenStockMarketAndPortfolioStock = () => {
-      if(props.selectedShare !== null){
+    if(props.selectedShare !== null){
       let filteredStock = _.filter(props.stock, {"companyName": props.selectedShare.companyName})
       let totalStockMarketShareValue = filteredStock[0].price * filteredStock[0].volume
       let totalPortfolioShareValue = props.selectedShare.price * props.selectedShare.volume
       let profitOrLoss = totalStockMarketShareValue - totalPortfolioShareValue
       return profitOrLoss
     }
-    };
+  };
 
   const comparePrices = () => {
     if(props.selectedShare !== null && props.selectedStock !== null){
@@ -81,7 +81,7 @@ const Portfolio = (props) => {
   // the profit/loss should then be updated in the database
 
   const totalValue = () => {
-      let total = 0;
+    let total = 0;
     if(props.portfolio !== []){
       for(let share of props.portfolio){
         total+=share.price * share.volume;
@@ -148,32 +148,32 @@ const Portfolio = (props) => {
 
   return (
     <React.Fragment>
-     <div className="portfolio-div">
-      <select
-        onChange={handlePortfolioSelect}
-        id="portfolio-selector"
-        defaultValue="default"
-        >
-          <option disabled value='default'> view shares</option>
-          {options}
-        </select>
-        <DisplayShare
-          share={props.selectedShare}
-        />
-        <button onClick={handleButton}>SELL STOCK</button>
-        <button onClick={handleClick}>PANIC SELL ALL</button>
+      <div className="child-div">
+        <select
+          onChange={handlePortfolioSelect}
+          id="portfolio-selector"
+          defaultValue="default"
+          >
+            <option disabled value='default'> view shares</option>
+            {options}
+          </select>
+          <DisplayShare
+            share={props.selectedShare}
+          />
+          <button onClick={handleButton}>SELL STOCK</button>
+          <button onClick={handleClick}>PANIC SELL ALL</button>
 
-        {/* <input type="button" value="Delete ALL" onClick={this.handleClick}/> */}
-        <h3>Portfolio Information</h3>
-        <h4>Total Portfolio Value: £{totalValue()}</h4>
-        <h4>Current Balance Value: £{props.wallet}</h4>
-        <h4>Selected Share Value: £{shareValue()}</h4>
-        <br />
-        <h3>Market Comparison</h3>
-        <h4>Current Profit/Loss of Share: £{calculateDifferenceBetweenStockMarketAndPortfolioStock()}</h4>
-        <h4>Share Percent Change: {filterStockMarketPriceChangePercent()}%</h4>
-        <h4>StockMarket Value of Share: £{filterStockMarketByPortfolioStockName()}</h4>
-       </div>
+          {/* <input type="button" value="Delete ALL" onClick={this.handleClick}/> */}
+          <h3>Portfolio Information</h3>
+          <h4>Total Portfolio Value: £{totalValue()}</h4>
+          <h4>Current Balance Value: £{props.wallet}</h4>
+          <h4>Selected Share Value: £{shareValue()}</h4>
+          <br />
+          <h3>Market Comparison</h3>
+          <h4>Current Profit/Loss of Share: £{calculateDifferenceBetweenStockMarketAndPortfolioStock()}</h4>
+          <h4>Share Percent Change: {filterStockMarketPriceChangePercent()}%</h4>
+          <h4>StockMarket Value of Share: £{filterStockMarketByPortfolioStockName()}</h4>
+        </div>
       </React.Fragment>
     )
   }
