@@ -15,24 +15,21 @@ const MarketStock = (props) => {
 
 
   const sectors = props.stock.map((stockItem, index) => {
-    return <option key={index} value={index}>{stockItem.sector}</option>
+    return <option key={index} value={stockItem.sector}>{stockItem.sector}</option>
   });
 
-  const filterBySector = () => {
-    const newSectors = [];
-    debugger;
-
-    for (let item of sectors){
-      if(item.sector){
-        newSectors.push(item)
-      }
-    }
-    //map through newSectors
-    //display items
-  }
+  const selectedSectors = props.sectorStock.map((item, index) => {
+      return <p key={index}>{item.companyName}</p>;
+    })
 
 
 
+
+const handleChangeSector= (event) => {
+  let sector = event.target.value;
+  props.onSelectedBySector(sector);
+
+}
 
 
 
@@ -55,12 +52,13 @@ const MarketStock = (props) => {
         {options}
       </select>
       <select
+        onChange={handleChangeSector}
         id="sector-filter"
         defaultValue="default">
         <option disabled value="default"> by sector</option>
         {sectors}
       </select>
-      <button className="button" onClick={this.filterBySector}>Filter By Sector</button>
+      {selectedSectors}
       <NewPortfolioStock wallet={props.wallet} currentStock={props.currentStock} onHandleWallet={props.handleWallet}/>
       <h3>News</h3>
       <p>Paracutes for sale!</p>
