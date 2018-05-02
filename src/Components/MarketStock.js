@@ -3,12 +3,10 @@ import NewPortfolioStock from './NewPortfolioStock';
 import _ from 'lodash';
 
 const MarketStock = (props) => {
-  debugger;
 
   const options = props.stock.map((stockItem, index) => {
 
     return <option key={index} value={index}>{stockItem.symbol}</option>
-    debugger;
 
 
   });
@@ -22,7 +20,6 @@ const MarketStock = (props) => {
 
   const filterBySector = () => {
     const newSectors = [];
-    debugger;
     for (let item of sectors){
       if(item.sector){
         newSectors.push(item)

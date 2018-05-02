@@ -18,7 +18,7 @@ class NewPortfolioStock extends React.Component {
      const buyOrder = this.props.currentStock
      buyOrder.volume = parseInt(this.state.volume)
      delete buyOrder._id;
-     console.log(buyOrder);
+     alert(`You purchased ${buyOrder.companyName} shares!`)
      fetch('http://localhost:3001/portfolio', {
        method: 'POST',
        headers : {
@@ -31,7 +31,6 @@ class NewPortfolioStock extends React.Component {
      .catch((err)=>console.log(err))
 
      let newWalletTotal = this.props.wallet - this.totalPrice();
-     debugger;
      this.props.onHandleWallet(newWalletTotal);
      this.setState({volume: "0"});
    }

@@ -8,7 +8,6 @@ const DisplayShare = (props) => {
       <li>Sector: {props.share.sector}</li>
       <li>Quantity: {props.share.volume}</li>
       <li>Buy Price: £{props.share.price}</li>
-      <li>value: £{(props.share.price * props.share.volume)}</li>
 
     </ul>
   )

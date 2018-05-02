@@ -65,23 +65,33 @@ const Portfolio = (props) => {
     }
   }
 
+  const shareValue = () => {
+    if(props.selectedShare !== null){
+      return props.selectedShare.price * props.selectedShare.volume;
+    }
+  }
+
   // let total = 0;
   // for(let share of props.portfolio){
   //   total+=share.price * share.volume;
   // }
   // return total;
 
-
+  const updateBalanceBySellPrice = () =>{
+    let newBalance = parseInt(props.wallet) + shareValue()
+    props.handleWallet(newBalance)
+  }
 
   const handleButton = (event)=>{
     event.preventDefault()
     const item = props.selectedShare;
-    console.log(item);
+    alert(`You sold ${item.companyName} shares!`)
     fetch('http://localhost:3001/portfolio' + '/' + item._id, {
       method: 'DELETE'
     }).then((res) => res.json())
     .then((data) =>  console.log(data))
     .catch((err)=> console.log(err))
+    updateBalanceBySellPrice()
   }
 
   const handleClick = (event)=>{
@@ -117,6 +127,8 @@ const Portfolio = (props) => {
 
         {/* <input type="button" value="Delete ALL" onClick={this.handleClick}/> */}
         <h4>Total Portfolio Value: £{totalValue()}</h4>
+        <h4>Current Balance Value: £{props.wallet}</h4>
+        <h4>Selected Stock Value: £{shareValue()}</h4>
       </React.Fragment>
     )
   }
