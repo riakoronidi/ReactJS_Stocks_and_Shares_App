@@ -148,6 +148,7 @@ const Portfolio = (props) => {
 
   return (
     <React.Fragment>
+     <div className="portfolio-div">
       <select
         onChange={handlePortfolioSelect}
         id="portfolio-selector"
@@ -172,6 +173,7 @@ const Portfolio = (props) => {
         <h4>Current Profit/Loss of Share: £{calculateDifferenceBetweenStockMarketAndPortfolioStock()}</h4>
         <h4>Share Percent Change: {filterStockMarketPriceChangePercent()}%</h4>
         <h4>StockMarket Value of Share: £{filterStockMarketByPortfolioStockName()}</h4>
+       </div>
       </React.Fragment>
     )
   }

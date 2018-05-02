@@ -14,7 +14,7 @@ const MarketStock = (props) => {
   // const sectors = _.uniqBy(props.stock,'sector');
 
 
-   const sectors = props.stock.map((stockItem, index) => {
+  const sectors = props.stock.map((stockItem, index) => {
     return <option key={index} value={index}>{stockItem.sector}</option>
   });
 
@@ -43,6 +43,7 @@ const MarketStock = (props) => {
 
   return (
     <React.Fragment>
+     <div className="marketstock-div">
       <select
         onChange={handleChange}
         id="Stock-selector"
@@ -63,6 +64,7 @@ const MarketStock = (props) => {
       <p>Buy low sell high!</p>
       <p>Investing in stock markets is a gamble: while you could win small or win big,</p>
       <p>you could lose small or lose big – and end up empty-handed.</p>
+     </div>
     </React.Fragment>
 
   )
