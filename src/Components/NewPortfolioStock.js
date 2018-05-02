@@ -9,8 +9,7 @@ class NewPortfolioStock extends React.Component {
     this.totalPrice = this.totalPrice.bind(this);
     this.viewWallet = this.viewWallet.bind(this);
     this.state = {
-      volume: "0",
-      wallet: "10000000"
+      volume: "0"
     }
   }
 
@@ -31,9 +30,9 @@ class NewPortfolioStock extends React.Component {
      .then((data) =>  console.log(data))
      .catch((err)=>console.log(err))
 
-     let newWalletTotal = this.state.wallet - this.totalPrice();
+     let newWalletTotal = this.props.wallet - this.totalPrice();
      debugger;
-     this.setState({wallet: newWalletTotal});
+     this.props.onHandleWallet(newWalletTotal);
      this.setState({volume: "0"});
    }
 
@@ -49,7 +48,7 @@ class NewPortfolioStock extends React.Component {
   }
 
   viewWallet = () => {
-    let newWallet = this.state.wallet - this.totalPrice();
+    let newWallet = this.props.wallet - this.totalPrice();
     let result =  +(newWallet.toFixed(2));
     return result;
   }
