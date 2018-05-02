@@ -43,23 +43,28 @@ const MarketStock = (props) => {
 
   return (
     <React.Fragment>
-      <div className="marketstock-div">
-        <select
-          onChange={handleChange}
-          id="Stock-selector"
-          defaultValue="default">
-          <option disabled value="default"> search market</option>
-          {options}
-        </select>
-        <select
-          id="sector-filter"
-          defaultValue="default">
-          <option disabled value="default"> by sector</option>
-          {sectors}
-        </select>
-        <button className="button" onClick={this.filterBySector}>Filter By Sector</button>
-        <NewPortfolioStock wallet={props.wallet} currentStock={props.currentStock} onHandleWallet={props.handleWallet}/>
-      </div>
+     <div className="marketstock-div">
+      <select
+        onChange={handleChange}
+        id="Stock-selector"
+        defaultValue="default">
+        <option disabled value="default"> search market</option>
+        {options}
+      </select>
+      <select
+        id="sector-filter"
+        defaultValue="default">
+        <option disabled value="default"> by sector</option>
+        {sectors}
+      </select>
+      <button className="button" onClick={this.filterBySector}>Filter By Sector</button>
+      <NewPortfolioStock wallet={props.wallet} currentStock={props.currentStock} onHandleWallet={props.handleWallet}/>
+      <h3>News</h3>
+      <p>Paracutes for sale!</p>
+      <p>Buy low sell high!</p>
+      <p>Investing in stock markets is a gamble: while you could win small or win big,</p>
+      <p>you could lose small or lose big – and end up empty-handed.</p>
+     </div>
     </React.Fragment>
 
   )

@@ -98,5 +98,25 @@
     "price": 1324.50,
     "week52High": 1252.00,
     "volume": 1003303
+  },
+  {
+    "symbol": "ASD",
+    "companyName": "Asda",
+    "sector": "Retailers",
+    "priceChange": "+19.00",
+    "priceChangePercent": "+6.79",
+    "price": 198.00,
+    "week52High": 201.58,
+    "volume": 5420
+  },
+  {
+    "symbol": "BTS",
+    "companyName": "BOOTS",
+    "sector": "Retailers",
+    "priceChange": "-2.69",
+    "priceChangePercent": "-3.57",
+    "price": 40.00,
+    "week52Average": 45.50,
+    "volume": 3625
   }
 ]
