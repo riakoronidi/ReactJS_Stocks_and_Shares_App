@@ -58,6 +58,11 @@ const MarketStock = (props) => {
       </select>
       <button className="button" onClick={this.filterBySector}>Filter By Sector</button>
       <NewPortfolioStock wallet={props.wallet} currentStock={props.currentStock} onHandleWallet={props.handleWallet}/>
+      <h3>News</h3>
+      <p>Paracutes for sale!</p>
+      <p>Buy low sell high!</p>
+      <p>Investing in stock markets is a gamble: while you could win small or win big,</p>
+      <p>you could lose small or lose big – and end up empty-handed.</p>
     </React.Fragment>
 
   )

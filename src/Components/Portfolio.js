@@ -81,12 +81,12 @@ const Portfolio = (props) => {
   // the profit/loss should then be updated in the database
 
   const totalValue = () => {
-    if(props.portfolio !== []){
       let total = 0;
+    if(props.portfolio !== []){
       for(let share of props.portfolio){
         total+=share.price * share.volume;
-      }return total;
-    }
+      }return total
+    }else{return total=0};
   }
 
   const shareValue = () => {
@@ -106,6 +106,19 @@ const Portfolio = (props) => {
     props.handleWallet(newBalance)
   }
 
+  const updateBalanceByAllPrices = () =>{
+    // props.handleWallet(newBalance)
+
+    // let newBalance = 0;
+    // props.portfolio.map((share) => {
+    // newBalance += (share.price * share.volume)
+    // });
+    let finalBalance = parseInt(props.wallet) + totalValue()
+    props.handleWallet(finalBalance)
+    // return finalBalance
+
+  }
+
   const handleButton = (event)=>{
     event.preventDefault()
     const item = props.selectedShare;
@@ -120,6 +133,7 @@ const Portfolio = (props) => {
   }
 
   const handleClick = (event)=>{
+    alert("ARE YOU OUT OF YOUR MIND?!")
     event.preventDefault()
     console.log("ALL DELETED");
     fetch('http://localhost:3001/portfolio', {
@@ -127,6 +141,7 @@ const Portfolio = (props) => {
     }).then((res) => res.json())
     .then((data) =>  console.log(data))
     .catch((err)=> console.log(err))
+    updateBalanceByAllPrices()
   }
 
 
@@ -144,18 +159,18 @@ const Portfolio = (props) => {
         <DisplayShare
           share={props.selectedShare}
         />
-        <button onClick={handleButton}>Sell</button>
-        <button onClick={handleClick}>Delete ALL</button>
+        <button onClick={handleButton}>SELL STOCK</button>
+        <button onClick={handleClick}>PANIC SELL ALL</button>
 
         {/* <input type="button" value="Delete ALL" onClick={this.handleClick}/> */}
         <h3>Portfolio Information</h3>
         <h4>Total Portfolio Value: £{totalValue()}</h4>
         <h4>Current Balance Value: £{props.wallet}</h4>
         <h4>Selected Share Value: £{shareValue()}</h4>
-        <h4>Current Profit/Loss of Share: £{calculateDifferenceBetweenStockMarketAndPortfolioStock()}</h4>
         <br />
         <h3>Market Comparison</h3>
-        <h4>Share Percent Change: £{filterStockMarketPriceChangePercent()}</h4>
+        <h4>Current Profit/Loss of Share: £{calculateDifferenceBetweenStockMarketAndPortfolioStock()}</h4>
+        <h4>Share Percent Change: {filterStockMarketPriceChangePercent()}%</h4>
         <h4>StockMarket Value of Share: £{filterStockMarketByPortfolioStockName()}</h4>
       </React.Fragment>
     )
