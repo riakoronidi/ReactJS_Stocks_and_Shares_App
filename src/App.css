@@ -1,9 +1,9 @@
 /* body{
-  width: 100%;
-  height: 100%;
+width: 100%;
+height: 100%;
 } */
 
-
+/* TitleBar */
 .title {
   text-align: center;
   /* width: 100%; */
@@ -12,15 +12,7 @@
   color: white;
   padding: 5px 20px 30px;
   font-size: 1.5em;
-  /* margin-top: 50px; */
-}
-
-.portfolio-div{
-  margin:20%;
-}
-
-.marketstock-div{
-    margin:25%;
+  margin-top: 10px;
 }
 
 .date-now{
@@ -29,11 +21,21 @@
   font-style: italic;
 }
 
-.buttonStock, .buttonPortfolio{
-  display:inline-block;
+
+
+/* Portfolio and MarketStock */
+.child-div{
+  margin:0;
+  height: 553px;
 }
 
 
+
+/* Home.js */
+
+/* .buttonStock, .buttonPortfolio{
+  display:inline-block;
+} */
 
 .button-portfolio{
   -webkit-border-radius: 2px;
@@ -48,12 +50,11 @@
   padding: 3px 12px 3px 12px;
   font-family: sans-serif;
   text-align: center;
-  display: block;
+  /* display: block; */
   justify-content: center;
   text-transform: uppercase;
   margin-top: 5px;
   margin-bottom: 5px;
-
 }
 
 .button-stock{
@@ -69,27 +70,40 @@
   padding: 3px 12px 3px 12px;
   font-family: sans-serif;
   text-align: center;
-  display: block;
+  /* display: block; */
   justify-content: center;
   text-transform: uppercase;
   margin-top: 5px;
   margin-bottom: 5px;
-
 }
 
-.table{
-  margin:auto;
-
-}
 .stock-div {
   width:100%;
   height: 350px;
   position: relative;
-  border: 2px solid black;
-  direction: rtl; text-align: center;
+  border: 3px solid darkgrey;
+  direction: rtl;
+  text-align: center;
+  border-style: ridge;
 }
 
+.table{
+  margin:auto;
+}
+/*
 img{
   width: 99%;
   height: 80%;
+} */
+
+/* Navbar */
+li{
+  display: inline-block;
+  margin: 10px 5px;
+}
+
+.news-div{
+  border: 5px solid black;
+  border-style: dotted solid;
+
 }

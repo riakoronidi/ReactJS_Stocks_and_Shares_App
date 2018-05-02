@@ -118,6 +118,27 @@ const Home = (props) => {
       "price": 1324.5,
       "week52High": 1252,
       "volume": 1003303
+    },{
+      "_id": "5aea1e5d6cf9c6bb953b76fc",
+      "symbol": "ASD",
+      "companyName": "Asda",
+      "sector": "Retailers",
+      "priceChange": "+19.00",
+      "priceChangePercent": "+6.79",
+      "price": 198,
+      "week52High": 201.58,
+      "volume": 5420
+    },
+    {
+      "_id": "5aea1e5d6cf9c6bb953b76fd",
+      "symbol": "BTS",
+      "companyName": "BOOTS",
+      "sector": "Retailers",
+      "priceChange": "-2.69",
+      "priceChangePercent": "-3.57",
+      "price": 37,
+      "week52Average": 45.5,
+      "volume": 3625
     }
   ]
 
@@ -142,7 +163,7 @@ const Home = (props) => {
 return(
   <React.Fragment>
 
-      <TitleBar />
+    <TitleBar />
 
     <div className="button-portfolio">
       <Link to='/portfolio'>Portfolio</Link>
@@ -153,13 +174,11 @@ return(
 
     <div className="stock-div">
       <h3 id="titleRaF">RISERS AND FALLERS</h3>
-      {/* <img  src="http://www.proactiveinvestors.co.uk/thumbs/upload/MarketReport/Image/2015_06/757z468_risers_fallers_resized.png" alt="TextImage"/> */}
 
       <BootstrapTable keyField='symbol' data={data} columns={columns} rowStyle={ { backgroundColor: 'dimgray' ,color:'white', 'textShadow': '2px 2px black'} } loading={ true } striped />
+    </div>
 
-  </div>
-
-</React.Fragment>
+  </React.Fragment>
 )
 }
 
