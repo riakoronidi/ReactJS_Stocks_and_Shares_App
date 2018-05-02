@@ -7,6 +7,7 @@ class NewPortfolioStock extends React.Component {
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
     this.handleVolumeChange = this.handleVolumeChange.bind(this);
     this.totalPrice = this.totalPrice.bind(this);
+    this.viewWallet = this.viewWallet.bind(this);
     this.state = {
       volume: "0"
     }
@@ -17,7 +18,7 @@ class NewPortfolioStock extends React.Component {
      const buyOrder = this.props.currentStock
      buyOrder.volume = parseInt(this.state.volume)
      delete buyOrder._id;
-     console.log(buyOrder);
+     alert(`You purchased ${buyOrder.companyName} shares!`)
      fetch('http://localhost:3001/portfolio', {
        method: 'POST',
        headers : {
@@ -28,16 +29,30 @@ class NewPortfolioStock extends React.Component {
      }).then((res) => res.json())
      .then((data) =>  console.log(data))
      .catch((err)=>console.log(err))
+
+     let newWalletTotal = this.props.wallet - this.totalPrice();
+     this.props.onHandleWallet(newWalletTotal);
+     this.setState({volume: "0"});
    }
 
   handleVolumeChange = (event) => {
     this.setState({volume: event.target.value});
+
   }
 
   totalPrice = () => {
     let total = this.props.currentStock.price * this.state.volume;
-    return total;
+    let result =  +(total.toFixed(2));
+    return result;
   }
+
+  viewWallet = () => {
+    let newWallet = this.props.wallet - this.totalPrice();
+    let result =  +(newWallet.toFixed(2));
+    return result;
+  }
+
+
 
   render(){
     if(!this.props.currentStock){
@@ -74,7 +89,8 @@ class NewPortfolioStock extends React.Component {
         </label>
         <input type="submit" value="Submit" />
       </form>
-      <h3>{this.totalPrice()}</h3>
+      <h3>Value{this.totalPrice()}</h3>
+      <h3>Wallet{this.viewWallet()}</h3>
     </React.Fragment>
   )
   }

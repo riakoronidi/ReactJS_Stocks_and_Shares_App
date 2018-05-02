@@ -11,14 +11,21 @@ class MainContainer extends React.Component {
     super(props);
     this.handlePortfolioSelected = this.handlePortfolioSelected.bind(this);
     this.handleStockSelected = this.handleStockSelected.bind(this);
+    this.handleSectorSelected = this.handleSectorSelected.bind(this);
+    this.updateWallet = this.updateWallet.bind(this)
+    this.portfolioRunner = this.portfolioRunner.bind(this)
     // this.handleStockMarket = handleStockMarket.bind(this);
     this.state = {
       stock: [],
       portfolio: [],
       currentShare: null,
-      currentStock: null
+      currentStock: null,
+      sector: null,
+      wallet: "10000000"
     }
   }
+
+
 
   // handlePortfolio(){
   //   // event.preventDefault();
@@ -40,6 +47,12 @@ class MainContainer extends React.Component {
     .then(json => this.setState({portfolio: json}));
   }
 
+  portfolioRunner(){
+    fetch("http://localhost:3001/portfolio")
+    .then(response => response.json())
+    .then(json => this.setState({portfolio: json}));
+  }
+
   handlePortfolioSelected(index){
     // debugger;
     const selectedShare = this.state.portfolio[index];
@@ -47,16 +60,21 @@ class MainContainer extends React.Component {
 
   }
 
+  handleSectorSelected(sector){
+    this.setState({currentSector: sector});
+  }
+
   handleStockSelected(index){
     const selectedStock = this.state.stock[index];
     this.setState({currentStock: selectedStock});
   }
 
+  updateWallet(balance){
+    this.setState({wallet: balance});
+  }
+
   render(){
     if(!this.state.stock.length){
-      return null;
-    }
-    if(!this.state.portfolio.length){
       return null;
     }
 
@@ -64,8 +82,8 @@ class MainContainer extends React.Component {
       <Router>
         <React.Fragment>
           <Route exact path="/" component={Home} stock={this.state.stock}/>
-          <Route path = "/portfolio" render={()=> <Portfolio portfolio={this.state.portfolio} onCurrentShare={this.handlePortfolioSelected} selectedShare={this.state.currentShare}/>}/>
-          <Route path = "/market_stock" render={()=> <MarketStock stock={this.state.stock} onStockSelected={this.handleStockSelected} newStock={this.state.currentStock} currentStock={this.state.currentStock}/>}/>
+          <Route path = "/portfolio" render={()=> <Portfolio portfolio={this.state.portfolio} onCurrentShare={this.handlePortfolioSelected} selectedShare={this.state.currentShare} wallet={this.state.wallet} handleWallet={this.updateWallet} portfolioRunner={this.portfolioRunner}/>}/>
+          <Route path = "/market_stock" render={()=> <MarketStock stock={this.state.stock} onStockSelected={this.handleStockSelected} newStock={this.state.currentStock} currentStock={this.state.currentStock} onSectorSelected={this.handleSectorSelected} currentSector={this.state.sector} wallet={this.state.wallet} handleWallet={this.updateWallet}/> }/>
         </React.Fragment>
       </Router>
 

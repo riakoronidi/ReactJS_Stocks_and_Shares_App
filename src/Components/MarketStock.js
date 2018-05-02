@@ -3,21 +3,23 @@ import NewPortfolioStock from './NewPortfolioStock';
 import _ from 'lodash';
 
 const MarketStock = (props) => {
-  // debugger;
 
   const options = props.stock.map((stockItem, index) => {
+
     return <option key={index} value={index}>{stockItem.symbol}</option>
+
+
   });
 
   // const sectors = _.uniqBy(props.stock,'sector');
 
-  const sectors = props.stock.map((stockItem, index) => {
+
+   const sectors = props.stock.map((stockItem, index) => {
     return <option key={index} value={index}>{stockItem.sector}</option>
   });
 
   const filterBySector = () => {
     const newSectors = [];
-    debugger;
     for (let item of sectors){
       if(item.sector){
         newSectors.push(item)
@@ -26,10 +28,15 @@ const MarketStock = (props) => {
     }
   }
 
+
+
+
+
+
   const handleChange = (event) => {
     let index = event.target.value
     props.onStockSelected(index);
-    debugger;
+
   }
 
 
@@ -50,7 +57,7 @@ const MarketStock = (props) => {
         {sectors}
       </select>
       <button className="button" onClick={this.filterBySector}>Filter By Sector</button>
-      <NewPortfolioStock currentStock={props.currentStock}/>
+      <NewPortfolioStock wallet={props.wallet} currentStock={props.currentStock} onHandleWallet={props.handleWallet}/>
     </React.Fragment>
 
   )
