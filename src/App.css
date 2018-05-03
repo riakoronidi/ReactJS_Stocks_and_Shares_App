@@ -27,6 +27,13 @@ height: 100%;
 .child-div{
   margin:0;
   height: 553px;
+  background-color: rgba(10, 6, 6, 0.2);
+  box-shadow:
+  0 0 0 3px hsl(0, 0%, 50%),
+  0 0 0 5px hsl(0, 0%, 60%),
+  0 0 0 8px hsl(0, 0%, 70%),
+  0 0 0 11px hsl(0, 0%, 80%),
+  0 0 0 15px hsl(0, 0%, 90%);
 }
 
 
@@ -34,7 +41,7 @@ height: 100%;
 /* Home.js */
 
 /* .buttonStock, .buttonPortfolio{
-  display:inline-block;
+display:inline-block;
 } */
 
 .button-portfolio{
@@ -92,18 +99,64 @@ height: 100%;
 }
 /*
 img{
-  width: 99%;
-  height: 80%;
+width: 99%;
+height: 80%;
 } */
 
 /* Navbar */
 li{
-  display: inline-block;
   margin: 10px 5px;
 }
 
 .news-div{
   border: 5px solid black;
   border-style: dotted solid;
+}
 
+@keyframes title {
+  from {text-shadow: 0 0 30px yellow, 0 0 50px pink;}
+  to {text-shadow: 0 0 5px black;}
+}
+
+li{
+  text-align: center;
+  padding: 5px;
+  color: white;
+}
+
+h2{
+  color: white;
+  text-align: center;
+  animation-name: title;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+h3{
+  text-align: center;
+  padding: 5px;
+  background: #222;
+  color: white;
+}
+
+h4{
+  text-align: center;
+  color: white;
+  text-shadow: 0 0 5px black;
+}
+
+select{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+  width: 50%;
+  width:150px;
+}
+
+button{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }

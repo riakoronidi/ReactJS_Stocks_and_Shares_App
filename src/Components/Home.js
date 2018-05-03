@@ -165,12 +165,12 @@ return(
 
     <TitleBar />
 
-    <div className="button-portfolio">
+    {/* <div className="button-portfolio">
       <Link to='/portfolio'>Portfolio</Link>
     </div>
     <div className="button-stock">
       <Link to='/market_stock'>Market Stock</Link>
-    </div>
+    </div> */}
 
     <div className="stock-div">
       <h3 id="titleRaF">RISERS AND FALLERS</h3>
