@@ -24,6 +24,28 @@ height: 100%;
 }
 
 
+label{
+  display:flex;
+  flex-direction: column;
+  width:50%;
+  margin-left: 25%;
+  text-align: center;
+  background-color: darkgrey;
+opacity: 0.8;
+}
+
+input{
+  text-align: center;
+
+}
+
+div.submit-button{
+  margin-left: 44%;
+}
+
+input.buyButton{
+  width: 20%;
+}
 
 /* Portfolio and MarketStock */
 .child-div{
