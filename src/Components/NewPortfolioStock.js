@@ -87,7 +87,9 @@ class NewPortfolioStock extends React.Component {
           Volume:
           <input type="text" value={this.state.volume} onChange={this.handleVolumeChange}/>
         </label>
-        <input type="submit" value="Submit" />
+        <div class="submit-button">
+        <input class="buyButton" type="submit" value="Submit" />
+        </div>
       </form>
       <h3>Value: £{this.totalPrice()}</h3>
       <h3>Wallet: £{this.viewWallet()}</h3>
