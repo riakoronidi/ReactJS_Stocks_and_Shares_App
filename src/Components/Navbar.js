@@ -4,14 +4,14 @@ import {Link} from "react-router-dom";
 const Navbar = () => {
   return(
     <ul>
-      <li>
+      <li className="navBarButton">
         <Link to="/">Home</Link>
       </li>
-      <li>
+      <li className="navBarButton">
         <Link to="/portfolio">Portfolio</Link>
       </li>
-      <li>
-        <Link to="/market_stock">Market Stock</Link>
+      <li className="navBarButton">
+        <Link to="/market_stock">Stock Market</Link>
       </li>
     </ul>
   )

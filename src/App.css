@@ -9,7 +9,7 @@ height: 100%;
   /* width: 902px; */
   width: auto;
   height: 80px;
-    /* height: 162px; */
+  /* height: 162px; */
   background-color: #222;
   color: white;
   padding: 20px 20px 50px;
@@ -25,23 +25,27 @@ height: 100%;
 
 
 label{
+  font-weight: bold;
+  text-transform: uppercase;
   display:flex;
   flex-direction: column;
   width:50%;
   margin-left: 25%;
   text-align: center;
   background-color: darkgrey;
-opacity: 1;
+  opacity: 1;
 }
 
 input{
   text-align: center;
   font-size: 18px;
-  background-color: rgb(249, 235, 190);
+  background-color: cadetblue;
+  color: white;
 
 }
 
 input.volume-field{
+  color: black;
   background-color: white;
 }
 
@@ -50,13 +54,38 @@ div.submit-button{
 }
 
 input.buyButton{
+  background: -webkit-linear-gradient(gold, gold 40%, #e5e5e5);
+  color: black;
   width: 20%;
+  text-shadow: 0 0 5px white;
+  font-weight: bold;
+}
+
+button.buyButton{
+  font-size: 16px;
+  background: -webkit-linear-gradient(gold, gold 40%, #e5e5e5);
+  color: black;
+  text-shadow: 0 0 5px white;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+button.panic{
+  font-size: 20px;
+  background: -webkit-linear-gradient(maroon, crimson 40%, #e5e5e5);
+  color: black;
+  text-shadow: 0 0 5px white;
+  font-weight: bold;
+  /* position: absolute; */
+  /* right: 10px; */
+  position: relative;
+  left: 35%;
 }
 
 /* Portfolio and MarketStock */
 .child-div{
+  padding-bottom: 5px;
   margin:0;
-  height: 553px;
   background-color: rgba(10, 6, 6, 0.2);
   box-shadow:
   0 0 0 3px hsl(0, 0%, 50%),
@@ -134,11 +163,6 @@ height: 80%;
 } */
 
 /* Navbar */
-li{
-  margin: 10px 5px;
-  font-weight: bold;
-  display: inline-block;
-}
 
 .news-div{
   border: 5px solid black;
@@ -150,10 +174,46 @@ li{
   to {text-shadow: 0 0 5px black;}
 }
 
+ul.shareUl{
+  /* background: -webkit-linear-gradient(#fafafa, #f4f4f4 40%, #e5e5e5); */
+  background-color: rgba(10, 30, 100, 0.2);
+  /* width: 50%; */
+  align-items: center;
+  text-align: center;
+  width: auto;
+  margin: 10px 100px 10px 100px;
+  border: 3px solid black;
+  /* width: 10px; */
+  /* display: block; */
+}
+
 li{
   text-align: center;
   padding: 5px;
-  color: white;
+  color: black;
+  margin: 10px 5px;
+  font-weight: bold;
+  text-shadow: 0 0 5px white;
+  display: inline-block;
+}
+
+li.navBarButton{
+  -webkit-border-radius: 2px;
+  -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+  -webkit-user-select: none;
+  background: -webkit-linear-gradient(black, black 40%, #e5e5e5);
+  border: 1px solid #aaa;
+  color: blue;
+  font-size: inherit;
+  margin: 2px;
+  padding: 5px 15px 5px 15px;
+  font-family: sans-serif;
+  text-align: center;
+  /* display: block; */
+  justify-content: center;
+  text-transform: uppercase;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 h2{
@@ -170,9 +230,17 @@ h3{
   padding: 5px;
   background: #222;
   color: white;
+  text-shadow: 0 0 5px black;
 }
 
 h4{
+  text-align: center;
+  color: white;
+  text-shadow: 0 0 5px black;
+}
+
+h5{
+  font-size: 20px;
   text-align: center;
   color: white;
   text-shadow: 0 0 5px black;
@@ -191,4 +259,32 @@ button{
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+
+a:link {
+  color: aqua;
+  background-color: transparent;
+  text-decoration: none;
+  text-shadow: 0 0 5px black;
+}
+
+a:visited {
+  color: aqua;
+  background-color: transparent;
+  text-decoration: none;
+  text-shadow: 0 0 5px black;
+}
+
+a:hover {
+  color: cadetblue;
+  background-color: transparent;
+  text-decoration: underline;
+  text-shadow: 0 0 5px black;
+}
+
+a:active {
+  color: darkblue;
+  background-color: transparent;
+  text-decoration: underline;
+  text-shadow: 0 0 5px black;
 }

@@ -3,7 +3,7 @@ import React from "react";
 const DisplayShare = (props) => {
   if(!props.share) return null;
   return (
-    <ul>
+    <ul className="shareUl">
       <li>{props.share.companyName}({props.share.symbol})</li>
       <li>Sector: {props.share.sector}</li>
       <li>Quantity: {props.share.volume}</li>

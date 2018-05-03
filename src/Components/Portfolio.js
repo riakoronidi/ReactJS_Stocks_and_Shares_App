@@ -34,7 +34,6 @@ const Portfolio = (props) => {
   const calculateDifferenceBetweenStockMarketAndPortfolioStock = () => {
     if(props.selectedShare !== null){
       let filteredStock = _.filter(props.stock, {"companyName": props.selectedShare.companyName})
-      debugger;
       let totalStockMarketShareValue = filteredStock[0].price * props.selectedShare.volume
       let totalPortfolioShareValue = props.selectedShare.price * props.selectedShare.volume
       let profitOrLoss = totalStockMarketShareValue - totalPortfolioShareValue
@@ -146,10 +145,10 @@ const Portfolio = (props) => {
   }
 
 
-
   return (
     <React.Fragment>
       <div className="child-div">
+        <h3>My Portfolio Shares</h3>
         <select
           onChange={handlePortfolioSelect}
           id="portfolio-selector"
@@ -161,9 +160,8 @@ const Portfolio = (props) => {
           <DisplayShare
             share={props.selectedShare}
           />
-          <button onClick={handleButton}>SELL STOCK</button>
-          <button onClick={handleClick}>PANIC SELL ALL</button>
-
+          <button className="buyButton" nonClick={handleButton}>SELL SHARE</button>
+          <button className="panic" onClick={handleClick}>PANIC SELL ALL</button>
           {/* <input type="button" value="Delete ALL" onClick={this.handleClick}/> */}
           <h3>Portfolio Information</h3>
           <h4>Total Portfolio Value: £{totalValue()}</h4>

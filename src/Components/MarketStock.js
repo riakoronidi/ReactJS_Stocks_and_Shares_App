@@ -44,29 +44,25 @@ const MarketStock = (props) => {
   return (
     <React.Fragment>
       <div className="child-div">
+        <h3>Global Stock Market</h3>
         <select
           onChange={handleChange}
           id="Stock-selector"
           defaultValue="default">
-          <option disabled value="default"> search market</option>
+          <option disabled value="default">SELECT A STOCK</option>
           {options}
         </select>
-        <select
+        {/* <select
           onChange={handleChangeSector}
           id="sector-filter"
           defaultValue="default">
           <option disabled value="default"> by sector</option>
           {sectors}
         </select>
-        {selectedSectors}
+        {selectedSectors} */}
         <NewPortfolioStock wallet={props.wallet} currentStock={props.currentStock} onHandleWallet={props.handleWallet}/>
-        <div className="news-div">
-          <h3><i>News</i></h3>
-          <h5>Paracutes for sale!</h5>
-          <h5>Buy low sell high!</h5>
-          <h5>Investing in stock markets is a gamble: while you could win small or win big.</h5>
-          <h5>You could lose small or lose big – and end up empty-handed.</h5>
-        </div>
+          <h3><i>Breaking News</i></h3>
+          <h5><a href="https://www.theguardian.com/business/2018/apr/27/tsb-it-meltdown-banking">TSB has been referred to as a Totally Shambolic Bank by angry consumer Jonathan Cruickshank.</a></h5>
       </div>
     </React.Fragment>
 
