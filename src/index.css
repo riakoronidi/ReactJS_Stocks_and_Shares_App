@@ -1,5 +1,24 @@
 body {
-  margin: 0;
-  padding: 0;
+  margin: 6px 10px;
+  /* padding: 0; */
   font-family: sans-serif;
+  background-image: linear-gradient(top, rgba(255,255,255,0.7) 0%,rgba(255,255,255,0.7) 100%),  url('https://si.wsj.net/public/resources/images/MI-BF434_TECHSP_F_20100822172921.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: 50% 0;
+  -ms-background-size: cover;
+  -o-background-size: cover;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  background-size: cover;
+  /* z-index: 10; */
+
 }
+
+/* article {
+  display: flex;
+} */
+
+/* p{
+  text-align: center;
+} */

@@ -15,6 +15,7 @@
     "lodash": "^4.17.10",
     "mongodb": "^3.0.7",
     "morgan": "~1.9.0",
-    "node-mongo-seeds": "^3.0.1"
+    "node-mongo-seeds": "^3.0.1",
+    "react-bootstrap-table-next": "^0.1.8"
   }
 }

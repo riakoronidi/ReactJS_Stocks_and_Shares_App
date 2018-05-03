@@ -1,16 +1,15 @@
 import React from "react";
 
 const DisplayShare = (props) => {
-  if(!props.currentShare) return null;
+  if(!props.share) return null;
   return (
-    <article>
-      <h6>{props.share.symbol}</h6>
-      <h6>{props.share.companyName}</h6>
-      <p>Sector: {props.share.sector}</p>
-      <p>Quantity: {props.share.quantity}</p>
-      <p>Buy Price: {props.share.price}</p>
-      <p>value: {(props.share.price * props.share.quantity)}</p>
-    </article>
+    <ul className="shareUl">
+      <li>{props.share.companyName}({props.share.symbol})</li>
+      <li>Sector: {props.share.sector}</li>
+      <li>Quantity: {props.share.volume}</li>
+      <li>Buy Price: £{props.share.price}</li>
+
+    </ul>
   )
 }
 
