@@ -61,7 +61,7 @@ const MarketStock = (props) => {
         </select>
         {selectedSectors} */}
         <NewPortfolioStock wallet={props.wallet} currentStock={props.currentStock} onHandleWallet={props.handleWallet}/>
-          <h3><i>Breaking News</i></h3>
+          <h3 className="breakingNews"><i>Breaking News</i></h3>
           <h5><a href="https://www.theguardian.com/business/2018/apr/27/tsb-it-meltdown-banking">TSB has been referred to as a Totally Shambolic Bank by angry consumer Jonathan Cruickshank.</a></h5>
       </div>
     </React.Fragment>

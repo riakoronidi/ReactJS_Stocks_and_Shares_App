@@ -160,7 +160,7 @@ const Portfolio = (props) => {
           <DisplayShare
             share={props.selectedShare}
           />
-          <button className="buyButton" nonClick={handleButton}>SELL SHARE</button>
+          <button className="buyButton" onClick={handleButton}>SELL SHARE</button>
           <button className="panic" onClick={handleClick}>PANIC SELL ALL</button>
           {/* <input type="button" value="Delete ALL" onClick={this.handleClick}/> */}
           <h3>Portfolio Information</h3>
