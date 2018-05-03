@@ -106,6 +106,7 @@ height: 80%;
 /* Navbar */
 li{
   margin: 10px 5px;
+  font-weight: bold;
 }
 
 .news-div{
