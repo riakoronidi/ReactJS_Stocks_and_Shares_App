@@ -86,10 +86,10 @@ class NewPortfolioStock extends React.Component {
           Enter amount you'd like to purchase
           <br />
           Volume
-          <input class="volume-field" type="text" value={this.state.volume} onChange={this.handleVolumeChange}/>
+          <input className="volume-field" type="text" value={this.state.volume} onChange={this.handleVolumeChange}/>
         </label>
-        <div class="submit-button">
-        <input class="buyButton" type="submit" value="Buy Now" />
+        <div className="submit-button">
+        <input className="buyButton" type="submit" value="Buy Now" />
         </div>
       </form>
       <h3>Value: £{this.totalPrice()}</h3>
