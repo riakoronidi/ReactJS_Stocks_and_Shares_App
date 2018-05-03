@@ -31,12 +31,18 @@ label{
   margin-left: 25%;
   text-align: center;
   background-color: darkgrey;
-opacity: 0.8;
+opacity: 1;
 }
 
 input{
   text-align: center;
+  font-size: 18px;
+  background-color: rgb(249, 235, 190);
 
+}
+
+input.volume-field{
+  background-color: white;
 }
 
 div.submit-button{

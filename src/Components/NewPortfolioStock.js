@@ -63,32 +63,33 @@ class NewPortfolioStock extends React.Component {
       <form onSubmit={this.handleFormSubmit}>
         <h3>Your selected stock</h3>
         <label>
-          Symbol:
+          Symbol
           <input type="text" disabled value={this.props.currentStock.symbol}/>
 
-          Company Name:
+          Company Name
           <input type="text" disabled value={this.props.currentStock.companyName}/>
 
-          Sector:
+          Sector
           <input type="text" disabled value={this.props.currentStock.sector}/>
 
-          Price Change:
+          Price Change
           <input type="text" disabled value={this.props.currentStock.priceChange}/>
 
-          Price Change Percent:
+          Price Change Percent
           <input type="text" disabled value={this.props.currentStock.priceChangePercent}/>
 
-          Price:
+          Price
           <input type="text" disabled value={this.props.currentStock.price}/>
 
-          Week 52 High:
+          Week 52 High
           <input type="text" disabled value={this.props.currentStock.week52High}/>
-
-          Volume:
-          <input type="text" value={this.state.volume} onChange={this.handleVolumeChange}/>
+          Enter amount you'd like to purchase
+          <br />
+          Volume
+          <input class="volume-field" type="text" value={this.state.volume} onChange={this.handleVolumeChange}/>
         </label>
         <div class="submit-button">
-        <input class="buyButton" type="submit" value="Submit" />
+        <input class="buyButton" type="submit" value="Buy Now" />
         </div>
       </form>
       <h3>Value: £{this.totalPrice()}</h3>
