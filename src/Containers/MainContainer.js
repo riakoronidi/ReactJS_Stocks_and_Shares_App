@@ -97,7 +97,7 @@ class MainContainer extends React.Component {
         <React.Fragment>
           <Navbar />
           <Route path = "/portfolio" render={()=> <Portfolio portfolio={this.state.portfolio} onCurrentShare={this.handlePortfolioSelected} selectedShare={this.state.currentShare} wallet={this.state.wallet} handleWallet={this.updateWallet} portfolioRunner={this.portfolioRunner} stock={this.state.stock}/>}/>
-          <Route exact path="/" component={Home} stock={this.state.stock}/>
+          <Route exact path="/" render={()=><Home stock={this.state.stock}/>}/>
           <Route path = "/market_stock" render={()=> <MarketStock stock={this.state.stock} onStockSelected={this.handleStockSelected} newStock={this.state.currentStock} currentStock={this.state.currentStock} onSectorSelected={this.handleSectorSelected} currentSector={this.state.sector} wallet={this.state.wallet} handleWallet={this.updateWallet}
           sectorStock={this.state.sectorStock}
           onSelectedBySector={this.handleSelectedSector}
