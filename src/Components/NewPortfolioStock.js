@@ -83,7 +83,7 @@ class NewPortfolioStock extends React.Component {
 
           Week 52 High
           <input type="text" disabled value={this.props.currentStock.week52High}/>
-          Enter amount you'd like to purchase
+          Enter amount you would like to purchase
           <br />
           Volume
           <input className="volume-field" type="text" value={this.state.volume} onChange={this.handleVolumeChange}/>

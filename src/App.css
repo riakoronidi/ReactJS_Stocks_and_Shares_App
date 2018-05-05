@@ -194,10 +194,10 @@ ul.shareUl{
 li{
   text-align: center;
   padding: 5px;
-  color: black;
+  color: white;
   margin: 10px 5px;
   font-weight: bold;
-  text-shadow: 0 0 5px white;
+  text-shadow: 0 0 5px black;
   display: inline-block;
 }
 
