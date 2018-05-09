@@ -1,0 +1,10 @@
+Shares App
+More and more people are playing the stock market. A local trader has come to you with a portoflio of shares. She wants to be able to analyse it more effectively. She has a small sample data set to give you and would like you to build a minimal viable product (MVP) that uses the data to display her portfolio in useful ways so that she can make better decisions.
+
+MVP
+- View total current value of the portfolio
+- View information for individual shares held
+- Ability to 'buy'/add more stocks to the portfolio and 'sell'/remove them and update total value.
+- View performance trends for individual stocks and the portfolio as a whole
+
+We created our own api that can be found in path: ReactJS_Stocks_and_Shares_App/react-backend/seeds/market_stock.json
